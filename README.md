@@ -27,7 +27,7 @@ AI-Job-Finder/
 ## API Used
 This project uses the **JSearch API** from RapidAPI to fetch job listings.
 
-- **Base URL**: `https://jsearch.p.rapidapi.com/search`
+- **Base URL**: `https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch`
 - **API Key**: Stored in the `.env` file.
 
 ## Environment Variables (.env)
