@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Job Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2 class="text-center">🚀 AI-Powered Job Finder</h2>
+
+        <!-- CV Upload Section -->
+        <div class="upload-box mt-4">
+            <label class="upload-label">
+                <i class="fas fa-file-upload"></i>
+                <span id="upload-text">Drag & Drop CV (PDF) or Click to Select</span>
+                <input type="file" id="cvUpload" accept=".pdf" hidden>
+            </label>
+        </div>
+        
+        <!-- Upload Button -->
+        <button class="btn btn-primary mt-2" id="upload-btn">Upload CV</button>
+        <p id="cv-keywords" class="text-muted mt-2"></p>
+
+        <hr>
+
+        <!-- Job Search Options -->
+        <h5 class="mt-4">Search Jobs</h5>
+        <div class="search-box">
+            <label>
+                <input type="radio" name="searchOption" id="manualInput" onclick="toggleInput(true)" checked> Manually Enter Job Title
+            </label>
+            <label>
+                <input type="radio" name="searchOption" id="cvInput" onclick="toggleInput(false)"> Use Extracted CV Keywords
+            </label>
+
+            <!-- Job Title Input -->
+            <input type="text" id="keywords" class="form-control mt-2" placeholder="Enter job title (e.g., Data Scientist)">
+
+            <!-- Location Input (Manual) -->
+            <input type="text" id="location" class="form-control mt-2" placeholder="Enter location (e.g., Mumbai)">
+
+            <button class="btn btn-success mt-3" onclick="fetchJobs()">Search Jobs</button>
+        </div>
+
+        <!-- Job Results -->
+        <div id="job-results" class="job-list mt-4"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
